@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kei Tsuchiya"]
   spec.email         = ["kei.tsuchiya86@gmail.com"]
 
-  spec.summary       = %q{A Ruby interface to the Airbnb.}
-  spec.description   = %q{A Ruby interface to the Airbnb.}
+  spec.summary       = %q{A Ruby interface to the Airbnb API.}
+  spec.description   = %q{A Ruby interface to the Airbnb API.}
   spec.homepage      = "https://github.com/kei500/airbnb"
   spec.license       = "MIT"
 
