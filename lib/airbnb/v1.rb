@@ -13,7 +13,7 @@ module Airbnb
       def current_user(access_token)
         response = HTTP.headers('X-Airbnb-OAuth-Token' => access_token)
           .get("#{Airbnb::V1::URL}/account/active", params: { client_id: client_id })
-        JSON.parse(response.to_str)
+        JSON.parse(response.to_str)['user']
       end
     end
   end
