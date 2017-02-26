@@ -6,12 +6,14 @@ module Airbnb
       def authorize(params)
         params = { form: params }
         params[:form][:client_id] = client_id
-        HTTP.post("#{Airbnb::V1::URL}/authorize", params)
+        response = HTTP.post("#{Airbnb::V1::URL}/authorize", params)
+        JSON.parse(response.to_str)
       end
 
       def current_user(access_token)
-        HTTP.headers('X-Airbnb-OAuth-Token' => access_token)
+        response = HTTP.headers('X-Airbnb-OAuth-Token' => access_token)
           .get("#{Airbnb::V1::URL}/account/active", params: { client_id: client_id })
+        JSON.parse(response.to_str)
       end
     end
   end
