@@ -1,12 +1,12 @@
-require 'http'
-
 module Airbnb
   class V1 < Base
     URL = "#{Airbnb::Base::URL}/v1".freeze
 
     class << self
       def authorize(params)
-        post("#{Airbnb::V1::URL}/authorize", form: params)
+        params = { form: params }
+        params[:form][:client_id] = client_id
+        HTTP.post("#{Airbnb::V1::URL}/authorize", params)
       end
 
       def current_user(access_token)
