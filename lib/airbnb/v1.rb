@@ -2,7 +2,7 @@ require 'json'
 
 module Airbnb
   class V1 < Base
-    URL = 'https://api.airbnb.com/v1'.freeze
+    URL = "#{Airbnb::Base::URL}/v1".freeze
 
     class << self
       def authorize(params)

@@ -3,6 +3,8 @@ require 'mechanize'
 
 module Airbnb
   class Base
+    URL = 'https://api.airbnb.com'.freeze
+
     class << self
       def post(endpoint, params)
         params[:form][:client_id] = client_id
