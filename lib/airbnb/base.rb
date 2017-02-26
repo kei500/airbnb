@@ -6,6 +6,11 @@ module Airbnb
     URL = 'https://api.airbnb.com'.freeze
 
     class << self
+      def get(endpoint, params = {params: {}})
+        params[:params][:client_id] = client_id
+        HTTP.get(endpoint, params)
+      end
+
       def post(endpoint, params)
         params[:form][:client_id] = client_id
         HTTP.post(endpoint, params)
